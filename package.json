@@ -1,7 +1,7 @@
 {
   "name": "my-react-project",
   "version": "0.1.0",
-  "homepage": "https://cesarNeze.github.io/Cesar-Zaitou-React-project1/",
+  "homepage": "http://sd-1023.github.io/Cesar-Zaitou-React-project1/",
   "private": true,
   "dependencies": {
     "@ionic/react": "^7.6.3",
