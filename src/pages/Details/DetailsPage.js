@@ -2,12 +2,31 @@ import React, { useState, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { IonIcon } from '@ionic/react';
 import { star, heart, checkmark } from 'ionicons/icons';
+import { useFavourites } from "../../contexts/FavouritesContext";
 
 
 
 function LoadDetails() {
-  const [detail, setDetail] = useState(null);
+  const [topic, setTopic] = useState(null);
   const { id } = useParams();
+  const {isFavItem, addToFavItem, removeFromFavItem,favItem}=useFavourites();
+  const [isFavTopic,setFavTopic]=useState(isFavItem(id));
+
+  useEffect(()=>{
+setFavTopic(isFavItem(id));
+  },[favItem])
+
+  const toggleFavItem=()=>{
+    if(isFavTopic){
+        console.log('remove')
+        removeFromFavItem(topic.id);
+    }
+    else{
+        console.log('add')
+        addToFavItem(topic);
+    }
+
+  }
 
   const detailsApi = `https://tap-web-1.herokuapp.com/topics/details/${id}`;
 
@@ -18,7 +37,7 @@ function LoadDetails() {
       .then((response) => response.json())
       .then((data) => {
         if (isMounted) {
-          setDetail(data);
+          setTopic(data);
           console.log(data);
         }
       })
@@ -30,7 +49,7 @@ function LoadDetails() {
     };
   }, [detailsApi]);
 
-  if (!detail) {
+  if (!topic) {
     // You may want to render a loading state or redirect the user
     return <div>Loading...</div>;
   }
@@ -40,27 +59,28 @@ function LoadDetails() {
       <div className="details-container">
         <div className="details-description">
           <div className="details-title">
-            <p className="text-length">{detail.category}</p>
-            <h3 className="text-length">{detail.topic}</h3>
+            <p className="text-length">{topic.category}</p>
+            <h3 className="text-length">{topic.topic}</h3>
             <div className="rating">
-              {Array.from({ length: detail.rating }).map((_, index) => (
+              {Array.from({ length: topic.rating }).map((_, index) => (
                 <IonIcon key={index} icon={star} />
               ))}
             </div>
             <div className="description">
-              {detail.description}
+              {topic.description}
             </div>
           </div>
         </div>
 
         <div className="author-card">
-          <img src={require(`../logos/${detail.image}`)} alt={detail.topic} />
+          <img src={require(`../../logos/${topic.image}`)} alt={topic.topic} />
           <p className="author-name text-length">
-            <strong>{detail.topic}</strong> by <NavLink to="#">{detail.name}</NavLink>
+            <strong>{topic.topic}</strong> by <NavLink to="#">{topic.name}</NavLink>
           </p>
           <div className="add-favourites border">
             <p>Interested about this topic?</p>
-            <button>Add to Favourites <IonIcon icon={heart} /></button>
+            <button onClick={toggleFavItem}>{isFavTopic?'Remove from Favoutites':'Add to Favourites '}<IonIcon icon={heart} />
+            </button>
             <p className="credits">Unlimited credits</p>
           </div>
         </div>
@@ -70,7 +90,7 @@ function LoadDetails() {
         <div className="topics-container">
           <h2 className="text-length">Checklist</h2>
           <ul className="checklist-topics">
-            {detail.subtopics.map((subtopic, index) => (
+            {topic.subtopics.map((subtopic, index) => (
               <li key={index}>
                 <span><IonIcon icon={checkmark} /></span> {subtopic}
               </li>

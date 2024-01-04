@@ -1,28 +1,37 @@
 
-import './App.css';
 
-import Home from './pages/Home';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
-import Details from './pages/Details';
-import LoadDetails from './controller/HttpDetails';
+import Home from './pages/Home/HomePage';
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+
+import DetailsPage from './pages/Details/DetailsPage';
+import { Layout } from './Layout/Layout';
+import { useState } from 'react';
+import { FavouritesProvider, useFavourites } from './contexts/FavouritesContext';
 
 
 
 function App() {
+
+
+
   return (
-    <div>
+    <FavouritesProvider>
       <Router>
-        <Header />
+
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/details/:id" element={<LoadDetails />} />
+          <Route path='/' element={<Layout  />}>
+
+            <Route index element={<Home />} />
+            <Route path="/details/:id" element={<DetailsPage />} />
+
+          </Route>
         </Routes>
-        <Footer />
+
       </Router>
-    </div>
+    </FavouritesProvider>
   );
 }
 
