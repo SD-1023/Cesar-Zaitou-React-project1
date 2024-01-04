@@ -19,7 +19,7 @@ function App() {
 
   return (
     <FavouritesProvider>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router basename='/Cesar-Zaitou-React-project1'>
 
         <Routes>
           <Route path='/' element={<Layout  />}>
