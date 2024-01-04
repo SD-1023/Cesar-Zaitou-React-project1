@@ -8,8 +8,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import DetailsPage from './pages/Details/DetailsPage';
 import { Layout } from './Layout/Layout';
-import { useState } from 'react';
-import { FavouritesProvider, useFavourites } from './contexts/FavouritesContext';
+
+import { FavouritesProvider} from './contexts/FavouritesContext';
 
 
 
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <FavouritesProvider>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
 
         <Routes>
           <Route path='/' element={<Layout  />}>
