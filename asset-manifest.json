@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Cesar-Zaitou-React-project1/static/css/main.767c2f98.css",
-    "main.js": "/Cesar-Zaitou-React-project1/static/js/main.d4fe3997.js",
+    "main.js": "/Cesar-Zaitou-React-project1/static/js/main.1e5addb0.js",
     "static/js/738.074f3cea.chunk.js": "/Cesar-Zaitou-React-project1/static/js/738.074f3cea.chunk.js",
     "static/js/466.87c642b6.chunk.js": "/Cesar-Zaitou-React-project1/static/js/466.87c642b6.chunk.js",
     "static/js/372.52a41364.chunk.js": "/Cesar-Zaitou-React-project1/static/js/372.52a41364.chunk.js",
@@ -47,7 +47,7 @@
     "static/media/heart-outline.svg": "/Cesar-Zaitou-React-project1/static/media/heart-outline.1e76b8077c62543b3b0c.svg",
     "static/media/moon-outline.svg": "/Cesar-Zaitou-React-project1/static/media/moon-outline.2129577db9c00aaa71d7.svg",
     "main.767c2f98.css.map": "/Cesar-Zaitou-React-project1/static/css/main.767c2f98.css.map",
-    "main.d4fe3997.js.map": "/Cesar-Zaitou-React-project1/static/js/main.d4fe3997.js.map",
+    "main.1e5addb0.js.map": "/Cesar-Zaitou-React-project1/static/js/main.1e5addb0.js.map",
     "738.074f3cea.chunk.js.map": "/Cesar-Zaitou-React-project1/static/js/738.074f3cea.chunk.js.map",
     "466.87c642b6.chunk.js.map": "/Cesar-Zaitou-React-project1/static/js/466.87c642b6.chunk.js.map",
     "372.52a41364.chunk.js.map": "/Cesar-Zaitou-React-project1/static/js/372.52a41364.chunk.js.map",
@@ -56,6 +56,6 @@
   },
   "entrypoints": [
     "static/css/main.767c2f98.css",
-    "static/js/main.d4fe3997.js"
+    "static/js/main.1e5addb0.js"
   ]
 }
